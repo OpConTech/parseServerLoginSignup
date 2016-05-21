@@ -17,6 +17,20 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    // ****************************************************************
+    [Parse initializeWithConfiguration:[ParseClientConfiguration configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
+        configuration.applicationId = @"YOUR_APP_ID";
+        configuration.clientKey = @"YOUR_APP_MASTER_KEY";
+        configuration.server = @"http://YOUR_APP.nodechef.com/parse";
+    }]];
+    // ****************************************************************
+    
+    // NOTE: NodeChef does not seem to adhere to Apple's App Transport Security
+    // therefore the configuration.server domain that is used above must also
+    // be set in the info.plist as an "Excepted Domain" - YOUR_APP.nodechef.com
+    // NSEcceptionDomains  <key>YOUR_APP.nodechef.com</key>
+    
     return YES;
 }
 

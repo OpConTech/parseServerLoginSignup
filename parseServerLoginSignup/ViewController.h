@@ -7,8 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <ParseUI/ParseUI.h>
+#import <Parse/Parse.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
+
+@property (nonatomic, strong) IBOutlet UILabel *welcomeLabel;
+
+- (IBAction)logOutButtonTapAction:(id)sender;
 
 
 @end
